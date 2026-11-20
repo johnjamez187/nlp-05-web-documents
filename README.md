@@ -1,21 +1,26 @@
 # nlp-05-web-documents
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![CI](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
-[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/nlp-05-web-documents/)
+[![CI](https://github.com/johnjamez187/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/johnjamez187/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
+[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://johnjamez187.github.io/nlp-05-web-documents/)
 
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
 [![ty type checked](https://img.shields.io/badge/ty-type_checked-2F80ED)](https://docs.astral.sh/ty/)
 [![Zensical docs](https://img.shields.io/badge/Zensical-docs-purple)](https://zensical.org/)
 [![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
-> Acquire, validate, and transform HTML web documents using Python.
+> Web Mining and Applied NLP - Module 5
+> HTML Web Document Extraction and Analysis
+
+**Author:** John James
+**Date:** November 2026
+**Repository:** https://github.com/johnjamez187/nlp-05-web-documents
 
 ## Project Overview
 
-Author: Denise Case
+Author: John James
 
-Date: 2026 October
+Date: 2026 November
 
 Fifth project in the Web Mining and Applied NLP course.
 
@@ -36,21 +41,27 @@ The project is configured in
 
 ## Data
 
-The example retrieves an academic paper's abstract page
-from [arXiv](https://arxiv.org/abs/2602.20021).
+The original example retrieves the academic research paper Agents of Chaos from arXiv.
+
+For my technical modification experiment, I changed the data source to Graph Neural Networks to Predict Sports Outcomes.
+
+I selected this research article because of my interest in football and sports analytics.
 
 The source document contains information such as:
 
-- Paper title.
-- Authors.
-- Abstract.
-- Subject categories.
-- Submission information.
-- arXiv identifier.
+Paper title.
 
-The pipeline preserves the original HTML
-and produces a structured CSV dataset
-containing extracted metadata.
+Authors.
+
+Abstract.
+
+Subject categories.
+
+Submission information.
+
+arXiv identifier.
+
+The pipeline preserves the original HTML and produces a structured CSV dataset containing extracted metadata.
 
 ## Approach
 
@@ -133,13 +144,39 @@ HTML acquisition, validation, transformation, and persistence.
 
 Run the automated tests:
 
+I changed the PAGE_URL variable in src/nlp/config.py
+to retrieve a research article related to sports analytics.
+
+- Original source: https://arxiv.org/abs/2602.20021
+- Modified source: https://arxiv.org/abs/2207.14124
+
+### Prediction
+
+I predicted that the article metadata, author count,
+and abstract word count would change while the DataFrame
+structure would remain one row and eight columns.
+
+### Actual Results
+
+| Attribute | Original | Modified |
+| --- | --- | --- |
+| Author count | 38 | 2 |
+| Abstract word count | 177 | 204 |
+| DataFrame rows | 1 | 1 |
+| DataFrame columns | 8 | 8 |
+| Tests passed | 2 | 2 |
+| Code coverage | 75.15% | 75.15% |
+
+The pipeline executed successfully, and the actual
+results matched my predictions.
+
 ```shell
 uv run python -m pytest
 ```
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/nlp-05-web-documents/)
+The [hosted documentation site](https://johnjamez187.github.io/nlp-05-web-documents/)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
@@ -153,8 +190,8 @@ to check project files and publish the docs.
 
 GitHub Actions include:
 
-- [CI: Python and Documentation Checks](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
-- [CD: Documentation Deployment](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/deploy-zensical.yml)
+- [CI: Python and Documentation Checks](https://github.com/johnjamez187/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
+- [CD: Documentation Deployment](https://github.com/johnjamez187/nlp-05-web-documents/actions/workflows/deploy-zensical.yml)
 
 ## Developer Reference
 
@@ -239,7 +276,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/nlp-05-web-documents/)
+- [Hosted Documentation](https://johnjamez187.github.io/nlp-05-web-documents/)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
