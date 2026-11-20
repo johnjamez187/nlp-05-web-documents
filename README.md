@@ -144,6 +144,8 @@ HTML acquisition, validation, transformation, and persistence.
 
 Run the automated tests:
 
+### Modification
+
 I changed the PAGE_URL variable in src/nlp/config.py
 to retrieve a research article related to sports analytics.
 
@@ -173,6 +175,149 @@ results matched my predictions.
 ```shell
 uv run python -m pytest
 ```
+
+
+## Custom Application: Kansas City Chiefs Game Recap Analysis
+
+**Author:** John James
+
+**Date:** November 2026
+
+### Project Purpose
+
+My custom application applies the EVTL pipeline to a Kansas City
+Chiefs game recap instead of an academic research article.
+
+The goal is to identify frequently occurring words and investigate
+which topics receive attention in the game recap.
+
+### Data Source
+
+The data was retrieved from the official Kansas City Chiefs website.
+
+- [Chiefs Defeat Chargers, 22-6, to Move to 5-0 on the Season](https://www.chiefs.com/news/chiefs-defeat-chargers-22-6-to-move-to-5-0-on-the-season)
+
+The article contains 17 nonempty paragraphs.
+
+### Tools and Techniques
+
+- Requests for HTML acquisition.
+- BeautifulSoup for HTML parsing and validation.
+- Pandas for structured data processing.
+- Regular expressions for tokenization.
+- Lowercase normalization.
+- Stop word removal.
+- Counter for word frequency analysis.
+- Matplotlib for data visualization.
+- pytest for automated verification.
+- uv for environment and dependency management.
+
+### Customized Python Files
+
+The custom application uses separate Python files to preserve
+the original pipeline and technical modification experiment.
+
+- [config_james.py](src/nlp/config_james.py) - custom configuration.
+- [stage02_validate_james.py](src/nlp/stage02_validate_james.py) - article validation.
+- [stage03_transform_james.py](src/nlp/stage03_transform_james.py) - text analysis.
+- [pipeline_web_html_james.py](src/nlp/pipeline_web_html_james.py) - custom pipeline.
+- [visualize_james.py](src/nlp/visualize_james.py) - word frequency visualization.
+- [test_james.py](tests/test_james.py) - custom automated tests.
+
+The original Extract and Load stages are reused without modification.
+
+### Run the Custom Application
+
+From the project root, initialize the environment:
+
+```shell
+uv sync
+```
+
+Run the customized Chiefs EVTL pipeline:
+
+```shell
+uv run python -m nlp.pipeline_web_html_james
+```
+
+Generate the visualization:
+
+```shell
+uv run python -m nlp.visualize_james
+```
+
+Run the automated tests:
+
+```shell
+uv run pytest -q
+```
+
+### Generated Files
+
+- `data/raw/chiefs_raw.html` - extracted HTML.
+- [chiefs_processed.csv](data/processed/chiefs_processed.csv) - structured analysis results.
+- [chiefs_word_frequency.png](docs/images/chiefs_word_frequency.png) - visualization.
+
+### Custom Application Results
+
+| Metric | Result |
+| --- | ---: |
+| Article paragraphs | 17 |
+| Total word tokens | 668 |
+| Cleaned word tokens | 355 |
+| Unique cleaned words | 245 |
+| Word tokens removed | 313 |
+| Preprocessing reduction | 46.86% |
+| DataFrame rows | 1 |
+| DataFrame columns | 7 |
+
+### Visualization
+
+![Kansas City Chiefs Word Frequency Analysis](docs/images/chiefs_word_frequency.png)
+
+### Key Finding
+
+The word "defensive" appeared six times, tying with Kansas,
+City, and Chiefs as the most frequently occurring cleaned words.
+
+This suggests that defensive performance received notable
+attention in the game recap.
+
+Text preprocessing removed 313 word tokens, reducing the
+original word token count by approximately 46.86%.
+
+### Verification Results
+
+| Verification | Result |
+| --- | ---: |
+| Original tests passed | 2 |
+| Custom tests passed | 3 |
+| Total tests passed | 5 |
+| Failed tests | 0 |
+| Required code coverage | 20% |
+| Actual code coverage | 65.55% |
+| Custom validation coverage | 100% |
+| Custom transformation coverage | 100% |
+
+All four EVTL stages executed successfully, and the
+visualization was generated from the processed CSV file.
+
+### Limitations and Future Improvements
+
+This analysis uses only one game recap and therefore
+does not represent the entire Kansas City Chiefs season.
+
+Individual words are analyzed separately, which separates
+phrases such as Kansas City and defensive end.
+
+Future improvements could include analyzing multiple game
+recaps, incorporating bigram analysis, comparing offensive
+and defensive terminology, and identifying changes in
+word frequency throughout the season.
+
+The original arXiv pipeline remains available and can be run
+independently of the custom Chiefs application.
+
 
 ## Project Documentation
 
