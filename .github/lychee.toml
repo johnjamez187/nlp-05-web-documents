@@ -114,4 +114,5 @@ exclude_path = [
   "ALL-PY-SRC",
   "ALL-COURSE",
   "ALL-COURSE-PY-SRC",
+  "data/raw/", # WHY: Downloaded HTML is source data, not documentation.
 ]
